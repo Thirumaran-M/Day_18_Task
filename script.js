@@ -11,6 +11,7 @@ document.body.append(date,button);
 
 function getdate(){
     var dob_year = document.getElementById("dob").value;
+    var dob_year = new Date(document.getElementById("dob").value);
     var user_year = new Date(dob_year);
     var cur_year = new Date();
     console.log(user_year.getTime());
@@ -31,10 +32,10 @@ function getdate(){
     var day = Math.floor(hours/24);
 //    console.log("Days: " + day);
 
-    var years = Math.floor(day/365.25);
+    var years = (cur_year.getFullYear() - user_year.getFullYear());
 //    console.log("Years: " + years);
     
-    var months = Math.floor(years*12);
+    var months = Math.floor(years*12) + (cur_year.getMonth() - user_year.getMonth());
     //console.log("Months: " + months); 
 
     var ele = document.createElement("div");
